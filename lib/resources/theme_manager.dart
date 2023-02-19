@@ -26,7 +26,7 @@ class ThemeManager {
         labelSmall: TextStyle(
           color: ColorManager.black,
           fontWeight: FontWeightManager.bold,
-          fontSize: FontSize.s20,
+          fontSize: FontSize.s16,
         ),
         headlineMedium: TextStyle(
           color: ColorManager.black,
@@ -37,6 +37,69 @@ class ThemeManager {
           color: ColorManager.black,
           fontWeight: FontWeightManager.normal,
           fontSize: FontSize.s18,
+        ),
+      ),
+
+      textSelectionTheme: const TextSelectionThemeData(
+        cursorColor: ColorManager.deepOrange,
+      ),
+      // input decoration theme (text form field)
+      inputDecorationTheme: const InputDecorationTheme(
+        // content padding
+        contentPadding: EdgeInsets.all(
+          AppPadding.p8,
+        ),
+        // hint style
+        hintStyle: TextStyle(color: ColorManager.grey, fontSize: FontSize.s16),
+        // label style
+        labelStyle: TextStyle(color: ColorManager.grey, fontSize: FontSize.s16),
+        errorStyle: TextStyle(color: ColorManager.red, fontSize: FontSize.s16),
+        // enabled border style
+        enabledBorder: OutlineInputBorder(
+          borderSide: BorderSide(
+            color: ColorManager.grey,
+            width: AppSize.s1_5,
+          ),
+          borderRadius: BorderRadius.all(
+            Radius.circular(
+              AppSize.s8,
+            ),
+          ),
+        ),
+        // focused border style
+        focusedBorder: OutlineInputBorder(
+          borderSide: BorderSide(
+            color: ColorManager.deepOrange,
+            width: AppSize.s1_5,
+          ),
+          borderRadius: BorderRadius.all(
+            Radius.circular(
+              AppSize.s8,
+            ),
+          ),
+        ),
+        // error border style
+        errorBorder: OutlineInputBorder(
+          borderSide: BorderSide(
+            color: ColorManager.red,
+            width: AppSize.s1_5,
+          ),
+          borderRadius: BorderRadius.all(
+            Radius.circular(
+              AppSize.s8,
+            ),
+          ),
+        ),
+        focusedErrorBorder: OutlineInputBorder(
+          borderSide: BorderSide(
+            color: ColorManager.deepOrange,
+            width: AppSize.s1_5,
+          ),
+          borderRadius: BorderRadius.all(
+            Radius.circular(
+              AppSize.s8,
+            ),
+          ),
         ),
       ),
     );

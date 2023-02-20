@@ -10,4 +10,5 @@ class AppString {
 
   static const String forgetPassword = 'Forget Password?';
   static const String login = 'Login';
+  static const String submit = 'Submit';
 }

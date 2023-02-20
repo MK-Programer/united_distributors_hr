@@ -15,28 +15,26 @@ class ScreenWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Size size = Utils(context).getScreenSize;
-    return Scaffold(
-      body: Stack(
-        children: [
-          Container(
-            width: double.infinity,
-            height: size.height,
-            decoration: BoxDecoration(
-              color: ColorManager.orange,
-              image: DecorationImage(
-                alignment: Alignment.bottomCenter,
-                colorFilter: ColorFilter.mode(
-                  ColorManager.black.withOpacity(AppSize.s0_8),
-                  BlendMode.dstATop,
-                ),
-                image: const AssetImage(ImgManager.background),
-                fit: BoxFit.cover,
+    return Stack(
+      children: [
+        Container(
+          width: double.infinity,
+          height: size.height,
+          decoration: BoxDecoration(
+            color: ColorManager.orange,
+            image: DecorationImage(
+              alignment: Alignment.bottomCenter,
+              colorFilter: ColorFilter.mode(
+                ColorManager.black.withOpacity(AppSize.s0_8),
+                BlendMode.dstATop,
               ),
+              image: const AssetImage(ImgManager.background),
+              fit: BoxFit.cover,
             ),
           ),
-          child,
-        ],
-      ),
+        ),
+        child,
+      ],
     );
   }
 }

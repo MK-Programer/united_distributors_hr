@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import '../resources/color_manager.dart';
 import '../resources/img_manager.dart';
 import '../resources/values_manager.dart';
-import '../utils/utils.dart';
+import '../services/utils.dart';
 
 class ScreenWidget extends StatelessWidget {
   final Widget child;

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:united_distributors_hr/resources/values_manager.dart';
 
 import '../resources/color_manager.dart';
 
@@ -18,7 +19,7 @@ class LoadingManager extends StatelessWidget {
         child,
         isLoading
             ? Container(
-                color: Colors.black.withOpacity(0.7),
+                color: Colors.black.withOpacity(AppSize.s0_8),
               )
             : Container(),
         isLoading

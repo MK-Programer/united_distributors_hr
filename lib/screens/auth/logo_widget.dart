@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import '../../resources/img_manager.dart';
 import '../../resources/values_manager.dart';
-import '../../utils/utils.dart';
+import '../../services/utils.dart';
 
 class LogoWidget extends StatelessWidget {
   const LogoWidget({Key? key}) : super(key: key);

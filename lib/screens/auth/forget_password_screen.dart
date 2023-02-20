@@ -4,7 +4,7 @@ import '../../resources/color_manager.dart';
 import '../../resources/icon_manager.dart';
 import '../../resources/string_manager.dart';
 import '../../resources/values_manager.dart';
-import '../../utils/utils.dart';
+import '../../services/utils.dart';
 import '../../widgets/loading_manager.dart';
 import '../../widgets/screen_widget.dart';
 import 'logo_widget.dart';

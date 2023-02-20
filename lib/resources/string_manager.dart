@@ -11,4 +11,8 @@ class AppString {
   static const String forgetPassword = 'Forget Password?';
   static const String login = 'Login';
   static const String submit = 'Submit';
+  static const String checkInternetConnection =
+      'Check your internet connection';
+  static const String formatException =
+      'Problem retrieving data contact your admin';
 }

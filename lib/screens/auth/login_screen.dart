@@ -165,7 +165,11 @@ class _LoginScreenState extends State<LoginScreen> {
                             width: double.infinity,
                             child: ElevatedButton(
                               onPressed: () {
-                                _submitForm();
+                                // _submitForm();
+                                Navigator.of(context).pushNamedAndRemoveUntil(
+                                  Routes.homeRoute,
+                                  ModalRoute.withName(Routes.loginRoute),
+                                );
                               },
                               style: ElevatedButton.styleFrom(
                                 primary: ColorManager.deepOrange,

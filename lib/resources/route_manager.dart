@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import '../screens/auth/forget_password_screen.dart';
 import '../screens/auth/login_screen.dart';
+import '../screens/home/home_screen.dart';
 import 'string_manager.dart';
 
 class Routes {
   static const String loginRoute = '/Login';
   static const String forgetPasswordRoute = '/ForgetPassword';
+  static const String homeRoute = '/Home';
 }
 
 class RouteGenerator {
@@ -18,6 +20,10 @@ class RouteGenerator {
       case Routes.forgetPasswordRoute:
         return MaterialPageRoute(
           builder: (_) => const ForgetPasswordScreen(),
+        );
+      case Routes.homeRoute:
+        return MaterialPageRoute(
+          builder: (_) => const HomeScreen(),
         );
       default:
         return unDefinedRoute();

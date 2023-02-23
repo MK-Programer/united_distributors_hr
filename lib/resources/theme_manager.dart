@@ -21,7 +21,7 @@ class ThemeManager {
         titleMedium: TextStyle(
           color: ColorManager.black,
           fontWeight: FontWeightManager.semiBold,
-          fontSize: FontSize.s18,
+          fontSize: FontSize.s22,
         ),
         labelSmall: TextStyle(
           color: ColorManager.black,
@@ -30,7 +30,7 @@ class ThemeManager {
         ),
         headlineMedium: TextStyle(
           color: ColorManager.black,
-          fontWeight: FontWeightManager.bold,
+          fontWeight: FontWeightManager.semiBold,
           fontSize: FontSize.s20,
         ),
         bodyMedium: TextStyle(

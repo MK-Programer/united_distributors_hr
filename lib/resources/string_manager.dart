@@ -15,4 +15,8 @@ class AppString {
       'Check your internet connection';
   static const String formatException =
       'Problem retrieving data contact your admin';
+  static const String macAddressError = 'Error getting the MAC address';
+  static const String failed = 'Failed';
+
+  static const String anErrorOccurred = 'An Error Occurred';
 }

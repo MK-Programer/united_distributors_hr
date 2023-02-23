@@ -1,9 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:fluttertoast/fluttertoast.dart';
+import 'package:provider/provider.dart';
+import '../../providers/auth_provider.dart';
 import '../../resources/color_manager.dart';
+import '../../resources/font_manager.dart';
 import '../../resources/icon_manager.dart';
 import '../../resources/string_manager.dart';
 import '../../resources/values_manager.dart';
+import '../../services/global_methods.dart';
 import '../../services/utils.dart';
 import '../../widgets/loading_manager.dart';
 import '../../widgets/screen_widget.dart';
@@ -21,10 +26,40 @@ class _ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
   final _formKey = GlobalKey<FormState>();
   bool _isLoading = false;
 
-  void _submitForm() {
+  Future<void> _submitForm() async {
     final isValid = _formKey.currentState!.validate();
     FocusScope.of(context).unfocus();
-    if (isValid) {}
+    if (isValid) {
+      _formKey.currentState!.save();
+      setState(() {
+        _isLoading = true;
+      });
+      try {
+        String msg = await Provider.of<AuthProvider>(context, listen: false)
+            .forgetPassword(
+          erpCode: _codeTextController.text,
+        );
+        await Fluttertoast.showToast(
+          msg: msg,
+          toastLength: Toast.LENGTH_SHORT,
+          gravity: ToastGravity.BOTTOM,
+          timeInSecForIosWeb: AppSize.s1.toInt(),
+          backgroundColor: Colors.grey.shade600,
+          textColor: ColorManager.white,
+          fontSize: FontSize.s16,
+        );
+      } catch (error) {
+        print(error);
+        setState(() {
+          _isLoading = false;
+        });
+        GlobalMethods.errorDialog(subTitle: error.toString(), context: context);
+      } finally {
+        setState(() {
+          _isLoading = false;
+        });
+      }
+    }
   }
 
   @override
@@ -99,9 +134,7 @@ class _ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
                             child: SizedBox(
                               width: double.infinity,
                               child: ElevatedButton(
-                                onPressed: () {
-                                  _submitForm();
-                                },
+                                onPressed: _submitForm,
                                 style: ElevatedButton.styleFrom(
                                   primary: ColorManager.deepOrange,
                                 ),

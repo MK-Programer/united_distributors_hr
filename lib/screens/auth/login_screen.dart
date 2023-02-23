@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:provider/provider.dart';
+import 'package:united_distributors_hr/services/global_methods.dart';
+import '../../providers/auth_provider.dart';
 import '../../resources/color_manager.dart';
 import '../../resources/icon_manager.dart';
 import '../../resources/route_manager.dart';
@@ -30,7 +33,31 @@ class _LoginScreenState extends State<LoginScreen> {
   void _submitForm() async {
     final isValid = _formKey.currentState!.validate();
     FocusScope.of(context).unfocus();
-    if (isValid) {}
+    if (isValid) {
+      _formKey.currentState!.save();
+      setState(() {
+        _isLoading = true;
+      });
+      try {
+        await Provider.of<AuthProvider>(context, listen: false).login(
+          erpCode: _codeTextController.text,
+          password: _passwordTextController.text,
+        );
+        Navigator.of(context).pushNamedAndRemoveUntil(
+          Routes.homeRoute,
+          ModalRoute.withName(Routes.loginRoute),
+        );
+      } catch (error) {
+        setState(() {
+          _isLoading = false;
+        });
+        GlobalMethods.errorDialog(subTitle: error.toString(), context: context);
+      } finally {
+        setState(() {
+          _isLoading = false;
+        });
+      }
+    }
   }
 
   @override
@@ -164,13 +191,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           child: SizedBox(
                             width: double.infinity,
                             child: ElevatedButton(
-                              onPressed: () {
-                                // _submitForm();
-                                Navigator.of(context).pushNamedAndRemoveUntil(
-                                  Routes.homeRoute,
-                                  ModalRoute.withName(Routes.loginRoute),
-                                );
-                              },
+                              onPressed: _submitForm,
                               style: ElevatedButton.styleFrom(
                                 primary: ColorManager.deepOrange,
                               ),

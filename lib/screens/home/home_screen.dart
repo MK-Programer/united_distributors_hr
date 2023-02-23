@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import '../../providers/auth_provider.dart';
 import '../../resources/values_manager.dart';
+import '../../services/utils.dart';
 import '../../widgets/screen_widget.dart';
 import 'card_widget.dart';
 
@@ -8,17 +11,27 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final authProvider = Provider.of<AuthProvider>(context);
+    final parentCardsList = authProvider.getParentCardsList;
+    Size size = Utils(context).getScreenSize;
     return Scaffold(
       body: ScreenWidget(
-        child: GridView.builder(
-          itemCount: 20,
-          itemBuilder: (context, index) {
-            return const CardWidget();
-          },
-          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: AppSize.s3.toInt(),
-            mainAxisSpacing: AppMargin.m10,
-            childAspectRatio: AppSize.s0_8,
+        child: Padding(
+          padding: const EdgeInsets.all(AppPadding.p8),
+          child: GridView.builder(
+            itemCount: parentCardsList.length,
+            itemBuilder: (context, index) {
+              return ChangeNotifierProvider.value(
+                value: parentCardsList[index],
+                child: const CardWidget(),
+              );
+            },
+            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: AppSize.s2.toInt(),
+              mainAxisSpacing: AppMargin.m10,
+              crossAxisSpacing: AppMargin.m10,
+              childAspectRatio: size.width / (size.width * AppSize.s0_9),
+            ),
           ),
         ),
       ),

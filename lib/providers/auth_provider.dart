@@ -13,6 +13,21 @@ class AuthProvider with ChangeNotifier {
   final List<CardModel> _parentCardsList = [];
   final List<CardModel> _childrenCardsList = [];
 
+  bool hasChildrens({required int parentCardId}) {
+    bool exists =
+        _childrenCardsList.any((card) => card.parentId == parentCardId);
+    if (exists) {
+      return true;
+    }
+    return false;
+  }
+
+  List<CardModel> getChildrenById({required int parentCardId}) {
+    return _childrenCardsList.where((element) {
+      return element.parentId == parentCardId;
+    }).toList();
+  }
+
   UserModel get getUerModel {
     return _userModel;
   }

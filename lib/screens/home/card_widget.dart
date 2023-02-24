@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../../resources/color_manager.dart';
 import '../../models/card_model.dart';
+import '../../resources/route_manager.dart';
 import '../../resources/values_manager.dart';
 import '../../services/utils.dart';
 
@@ -13,7 +14,10 @@ class CardWidget extends StatelessWidget {
     final cardModel = Provider.of<CardModel>(context);
     Size size = Utils(context).getScreenSize;
     return InkWell(
-      onTap: () {},
+      onTap: () {
+        Navigator.of(context)
+            .pushNamed(Routes.childrenRoute, arguments: cardModel.id);
+      },
       child: Container(
         decoration: BoxDecoration(
           color: ColorManager.white,

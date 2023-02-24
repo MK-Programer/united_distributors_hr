@@ -10,4 +10,5 @@ class IconManager {
   static const IconData settings = IconlyBold.setting;
   static const IconData aboutUs = IconlyBold.infoCircle;
   static const IconData logout = IconlyBold.logout;
+  static const IconData notification = IconlyBold.notification;
 }

@@ -1,4 +1,6 @@
+import 'package:badges/badges.dart';
 import 'package:flutter/material.dart';
+import '../resources/values_manager.dart';
 import '../resources/img_manager.dart';
 import '../resources/string_manager.dart';
 import '../resources/color_manager.dart';
@@ -45,6 +47,36 @@ class _SideBarScreenState extends State<SideBarScreen> {
     return Scaffold(
       appBar: AppBar(
         title: Text(_pages[_selectedDrawerIndex]['title']),
+        actions: [
+          Padding(
+            padding: const EdgeInsets.all(AppPadding.p12),
+            child: InkWell(
+              onTap: () {
+                print('123');
+              },
+              child: Badge(
+                showBadge: true,
+                ignorePointer: false,
+                badgeContent: const Text('1'),
+                badgeAnimation: const BadgeAnimation.rotation(
+                  loopAnimation: true,
+                  curve: Curves.fastOutSlowIn,
+                  colorChangeAnimationCurve: Curves.easeInCubic,
+                ),
+                badgeStyle: BadgeStyle(
+                  shape: BadgeShape.circle,
+                  badgeColor: ColorManager.orange,
+                  padding: const EdgeInsets.all(AppPadding.p5),
+                  borderRadius: BorderRadius.circular(AppSize.s5),
+                  borderSide:
+                      BorderSide(color: ColorManager.white, width: AppSize.s2),
+                  elevation: AppSize.s0,
+                ),
+                child: const Icon(IconManager.notification),
+              ),
+            ),
+          ),
+        ],
       ),
       drawer: Drawer(
         child: ListView(

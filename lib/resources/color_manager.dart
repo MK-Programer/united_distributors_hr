@@ -8,4 +8,5 @@ class ColorManager {
   static const Color red = Colors.red;
   static const Color orange = Color.fromRGBO(254, 219, 199, 1);
   static const Color deepOrange = Colors.orange;
+  static const Color blue = Colors.blue;
 }

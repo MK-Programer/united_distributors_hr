@@ -20,4 +20,11 @@ class AppString {
 
   static const String anErrorOccurred = 'An Error Occurred';
   static const String logout = 'Logout';
+  static const String hrBook = 'HRbook';
+  static const String aboutHrBook =
+      'United Distributor\'s Mobile Application that serves its employees in there works.';
+  static const String version = 'Version';
+
+  static const String copyRight =
+      'Copyright © 2023 - United Distributors - All rights reserved.';
 }

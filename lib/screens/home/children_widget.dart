@@ -34,7 +34,7 @@ class ChildrenWidget extends StatelessWidget {
                     crossAxisCount: AppSize.s2.toInt(),
                     mainAxisSpacing: AppMargin.m10,
                     crossAxisSpacing: AppMargin.m10,
-                    childAspectRatio: size.width / (size.width * AppSize.s0_9),
+                    // childAspectRatio: size.width / (size.width * AppSize.s0_9),
                   ),
                 ),
               )

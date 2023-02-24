@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../screens/side_bar_screen.dart';
 import '../screens/auth/forget_password_screen.dart';
 import '../screens/auth/login_screen.dart';
 import '../screens/home/children_widget.dart';
@@ -10,11 +11,16 @@ class Routes {
   static const String forgetPasswordRoute = '/ForgetPassword';
   static const String homeRoute = '/Home';
   static const String childrenRoute = '/Children';
+  static const String navRoute = '/Navigation';
 }
 
 class RouteGenerator {
   static Route<dynamic> getRoute(RouteSettings settings) {
     switch (settings.name) {
+      case Routes.navRoute:
+        return MaterialPageRoute(
+          builder: (_) => const SideBarScreen(),
+        );
       case Routes.loginRoute:
         return MaterialPageRoute(
           builder: (_) => const LoginScreen(),

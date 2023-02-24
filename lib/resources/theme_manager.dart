@@ -8,11 +8,13 @@ class ThemeManager {
     return ThemeData(
       scaffoldBackgroundColor: ColorManager.scaffoldColor,
       appBarTheme: AppBarTheme(
-        backgroundColor: ColorManager.white,
+        iconTheme: IconThemeData(color: ColorManager.black),
+        titleSpacing: AppSize.s0,
+        backgroundColor: ColorManager.orange,
         titleTextStyle: TextStyle(
           color: ColorManager.black,
-          fontSize: FontSize.s24,
-          fontWeight: FontWeightManager.bold,
+          fontSize: FontSize.s22,
+          fontWeight: FontWeightManager.semiBold,
         ),
         elevation: AppSize.s0,
       ),
@@ -20,8 +22,8 @@ class ThemeManager {
       textTheme: TextTheme(
         titleMedium: TextStyle(
           color: ColorManager.black,
-          fontWeight: FontWeightManager.semiBold,
-          fontSize: FontSize.s22,
+          fontWeight: FontWeightManager.bold,
+          fontSize: FontSize.s20,
         ),
         labelSmall: TextStyle(
           color: ColorManager.black,

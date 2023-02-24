@@ -44,7 +44,7 @@ class _LoginScreenState extends State<LoginScreen> {
           password: _passwordTextController.text,
         );
         Navigator.of(context).pushNamedAndRemoveUntil(
-          Routes.homeRoute,
+          Routes.navRoute,
           ModalRoute.withName(Routes.loginRoute),
         );
       } catch (error) {

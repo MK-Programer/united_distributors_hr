@@ -65,6 +65,7 @@ class AuthProvider with ChangeNotifier {
       'mac_address': identifier,
     };
     var data = await APIHandler.postData(json: json, target: 'login');
+
     //! get the user token and store it in the shared prefs
     _extractUser(data['user']);
     _extractCards(data['cards']);

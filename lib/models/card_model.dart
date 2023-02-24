@@ -4,7 +4,7 @@ class CardModel with ChangeNotifier {
   final int id;
   final String nameEn;
   final String nameAr;
-  final int sequance;
+  final int sequence;
   final int parentId;
   final String imageUrl;
 
@@ -12,7 +12,7 @@ class CardModel with ChangeNotifier {
     required this.id,
     required this.nameEn,
     required this.nameAr,
-    required this.sequance,
+    required this.sequence,
     required this.parentId,
     required this.imageUrl,
   });
@@ -22,7 +22,7 @@ class CardModel with ChangeNotifier {
       id: json['id'],
       nameEn: json['name_en'],
       nameAr: json['name_ar'],
-      sequance: json['sequence'],
+      sequence: json['sequance'],
       parentId: json['parent_id'],
       imageUrl: json['image_url'],
     );

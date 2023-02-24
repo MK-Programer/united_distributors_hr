@@ -24,6 +24,8 @@ class CardWidget extends StatelessWidget {
           borderRadius: BorderRadius.circular(AppSize.s16),
         ),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Container(
               height: size.width * AppSize.s0_3,
@@ -43,6 +45,7 @@ class CardWidget extends StatelessWidget {
             Text(
               cardModel.nameEn,
               style: Theme.of(context).textTheme.titleMedium,
+              textAlign: TextAlign.center,
             ),
           ],
         ),

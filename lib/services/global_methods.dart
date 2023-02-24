@@ -30,7 +30,10 @@ class GlobalMethods {
               ),
             ],
           ),
-          content: Text(subTitle),
+          content: Text(
+            subTitle,
+            style: Theme.of(context).textTheme.bodyMedium,
+          ),
           actions: [
             TextButton(
               onPressed: () {

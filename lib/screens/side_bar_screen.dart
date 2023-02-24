@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import '../resources/img_manager.dart';
+import '../resources/string_manager.dart';
 import '../resources/color_manager.dart';
 import '../resources/font_manager.dart';
 import '../screens/home/home_screen.dart';
 import '../resources/icon_manager.dart';
+import 'about_screen.dart';
 
 class SideBarScreen extends StatefulWidget {
   const SideBarScreen({Key? key}) : super(key: key);
@@ -26,7 +29,7 @@ class _SideBarScreenState extends State<SideBarScreen> {
     {
       'title': 'About us',
       'icon': IconManager.aboutUs,
-      'body': const HomeScreen(),
+      'body': const AboutScreen(),
     },
   ];
 
@@ -44,42 +47,44 @@ class _SideBarScreenState extends State<SideBarScreen> {
         title: Text(_pages[_selectedDrawerIndex]['title']),
       ),
       drawer: Drawer(
-        child: Column(
+        child: ListView(
           children: [
             DrawerHeader(
               child: Container(
                 decoration: const BoxDecoration(
                   image: DecorationImage(
-                    image: AssetImage('assets/images/logo.png'),
-                    fit: BoxFit.scaleDown,
+                    image: AssetImage(ImgManager.logo),
+                    fit: BoxFit.contain,
                   ),
                 ),
-                child: null,
               ),
             ),
-            Expanded(
-              child: ListView(
-                children: [
-                  for (int i = 0; i < _pages.length; i++)
-                    ListTile(
-                      title: Text(
-                        _pages[i]['title'],
-                        style:
-                            Theme.of(context).textTheme.titleMedium!.copyWith(
-                                  fontWeight: FontWeightManager.semiBold,
-                                ),
+            for (int i = 0; i < _pages.length; i++)
+              ListTile(
+                title: Text(
+                  _pages[i]['title'],
+                  style: Theme.of(context).textTheme.titleMedium!.copyWith(
+                        fontWeight: FontWeightManager.semiBold,
                       ),
-                      leading: Icon(
-                        _pages[i]['icon'],
-                        color: i == _selectedDrawerIndex
-                            ? ColorManager.deepOrange
-                            : ColorManager.grey,
-                      ),
-                      selected: i == _selectedDrawerIndex,
-                      onTap: () => _onSelectItem(i),
-                    ),
-                ],
+                ),
+                leading: Icon(
+                  _pages[i]['icon'],
+                  color: i == _selectedDrawerIndex
+                      ? ColorManager.deepOrange
+                      : ColorManager.grey,
+                ),
+                selected: i == _selectedDrawerIndex,
+                onTap: () => _onSelectItem(i),
               ),
+            ListTile(
+              leading: const Icon(IconManager.logout),
+              title: Text(
+                AppString.logout,
+                style: Theme.of(context).textTheme.titleMedium!.copyWith(
+                      fontWeight: FontWeightManager.semiBold,
+                    ),
+              ),
+              onTap: () {},
             ),
           ],
         ),

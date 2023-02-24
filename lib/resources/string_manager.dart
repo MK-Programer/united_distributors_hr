@@ -19,4 +19,5 @@ class AppString {
   static const String failed = 'Failed';
 
   static const String anErrorOccurred = 'An Error Occurred';
+  static const String logout = 'Logout';
 }

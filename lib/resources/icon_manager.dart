@@ -9,4 +9,5 @@ class IconManager {
   static const IconData home = IconlyBold.home;
   static const IconData settings = IconlyBold.setting;
   static const IconData aboutUs = IconlyBold.infoCircle;
+  static const IconData logout = IconlyBold.logout;
 }
